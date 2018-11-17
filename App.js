@@ -35,8 +35,8 @@ class Home extends Component<{}> {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         alert(JSON.stringify(user));
-        //firebase.messaging().requestPermissions();
-        //firebase.messaging().subscribeToTopic("chat");
+        firebase.messaging().requestPermissions();
+        firebase.messaging().subscribeToTopic("chat");
         this.setState({ loading: false, authenticated: true });
       } else {
         firebase.messaging().unsubscribeFromTopic("chat");
